@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0f0f0f" />
+  <meta name="description" content="Ishika Rastogi — Strategy, Market Research & Operations Portfolio" />
+  <title>Ishika Rastogi | Strategy & Operations</title>
+
+  <!-- Fonts: Editorial Serif + Clean Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root{
+      /* --- Editorial Stone / Sand Palette --- */
+      --bg: #141311;
+      --panel: #1b1a17;
+      --panel-hover: #21201c;
+      --border: rgba(194,180,154,0.18);
+
+      /* Accents */
+      --sand: #cbbfa6;
+      --sand-dim: #a89b84;
+      --stone: #b6a98f;
+
+      /* Text */
+      --text-main: #f2efe9;
+      --text-muted: #b9b4a8;
+
+      /* Measurements */
+      --radius: 26px;
+      --max-w: 1000px;
+    }
+
+    html { font-size: 14px; scroll-behavior: smooth; }
+    
+    body {
+      margin: 0;
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding: 40px 20px;
+    }
+
+    /* --- Typography --- */
+    h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; margin: 0; }
+    
+    /* Minimal Hero Typography */
+    .hero-name { 
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    .hero-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--sand);
+    }
+
+    h2 { 
+      font-size: clamp(1.4rem, 2.5vw, 1.9rem); 
+      color: var(--sand); 
+      margin-bottom: 24px; 
+    }
+    h3 { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; color: #fff; }
+
+    p, li { 
+      font-weight: 300; 
+      color: var(--text-muted); 
+      font-size: clamp(0.9rem, 1.6vw, 0.95rem); 
+    }
+    
+    /* --- Grid Layout --- */
+    .bento-grid {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(16px, 3vw, 24px);
+    }
+    @media (max-width: 1200px) {
+      .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* --- Cards --- */
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* Micro-interactions */
+    @media (prefers-reduced-motion: no-preference) {
+
+      /* ENTRY: zoom-out → in */
+      .card {
+        animation: zoomInCard 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+        animation-fill-mode: both;
+        will-change: transform, opacity;
+      }
+
+      .card:nth-child(1) { animation-delay: 0.12s; }
+      .card:nth-child(2) { animation-delay: 0.22s; }
+      .card:nth-child(3) { animation-delay: 0.32s; }
+      .card:nth-child(4) { animation-delay: 0.42s; }
+      .card:nth-child(5) { animation-delay: 0.52s; }
+      .card:nth-child(6) { animation-delay: 0.62s; }
+      .card:nth-child(7) { animation-delay: 0.72s; }
+
+      @keyframes zoomInCard {
+        0% {
+          opacity: 0;
+          transform: scale(0.92);
+        }
+        60% {
+          opacity: 1;
+          transform: scale(1.005);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    }
+
+    /* --- SPECIFIC AREAS --- */
+    
+    /* 1A. HERO TEXT (Left Half) */
+    .area-hero-text,
+    .area-hero-image {
+      grid-column: span 2;
+      aspect-ratio: 3 / 4;
+    }
+
+    @media (max-width: 1200px) {
+      .area-hero-text,
+      .area-hero-image {
+        aspect-ratio: 4 / 3;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .area-hero-text,
+      .area-hero-image {
+        grid-column: span 1;
+        aspect-ratio: auto;
+        min-height: unset;
+      }
+    }
+
+    /* Override for image tile padding */
+    .area-hero-image {
+      padding: 0;
+    }
+
+    /* 1B. HERO IMAGE (Right Half) */
+    
+
+
+    /* 2. EXPERIENCE (Full Width Middle) */
+    .area-work {
+      grid-column: span 4; /* Now Full Width */
+    }
+    
+    /* Internal Grid for Work Items to use the width effectively */
+    .work-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .work-full-row {
+      grid-column: span 2;
+    }
+
+    /* 3. PROJECTS (Bottom Left) */
+    .area-projects {
+      grid-column: span 2;
+    }
+
+    /* 4. SKILLS (Bottom Right) */
+    .area-skills {
+      grid-column: span 2;
+    }
+
+    /* 5. EDUCATION (Footer Full) */
+    .area-education {
+      grid-column: span 4;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* --- Components --- */
+    .job-item {
+      padding-bottom: 24px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .job-item:last-child { border: none; margin-bottom: 0; padding-bottom: 0; }
+    
+    .job-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+    .company { font-size: 0.85rem; text-transform: uppercase; color: var(--sand); letter-spacing: 0.05em; font-weight: 600; }
+    .date { font-size: 0.75rem; opacity: 0.5; font-family: 'Inter', monospace; }
+
+    .skill-pill {
+      display: inline-block;
+      background: rgba(194, 180, 154, 0.08);
+      color: var(--sand);
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      margin: 0 6px 10px 0;
+      border: 1px solid transparent;
+      transition: 0.3s;
+    }
+    .skill-pill:hover { border-color: var(--sand); background: rgba(194, 180, 154, 0.15); }
+
+    .btn {
+      text-decoration: none;
+      color: #1b1a17;
+      background: var(--stone);
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-block;
+      margin-top: 24px;
+      transition: transform 0.2s;
+    }
+    .btn:hover { transform: scale(1.02); }
+
+    /* Mobile */
+    @media (max-width: 900px) {
+      /* MOBILE-FIRST TYPOGRAPHY (PORTRAIT SAFE) */
+      html {
+        font-size: 13px;
+      }
+      /* HERO */
+      .hero-name {
+        font-size: clamp(2rem, 7.5vw, 2.6rem);
+        line-height: 1.1;
+      }
+      /* SECTION HEADERS */
+      h2 {
+        font-size: clamp(1.2rem, 5vw, 1.55rem);
+      }
+      /* SUBHEADERS */
+      h3 {
+        font-size: 0.95rem;
+      }
+      /* BODY TEXT */
+      p, li {
+        font-size: 0.9rem;
+      }
+
+      /* 1) FIX HERO STACKING (text + image) */
+      .area-hero-text,
+      .area-hero-image {
+        grid-column: span 1;
+        aspect-ratio: auto;
+        min-height: unset;
+      }
+      .area-hero-text {
+        padding-bottom: 20px;
+      }
+
+      /* 2) FIX HERO IMAGE CROP ON MOBILE */
+      .area-hero-image {
+        height: 420px;
+        aspect-ratio: unset;
+        min-height: unset;
+      }
+      .area-hero-image img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      /* 3) REMOVE VISUAL “GAP / STRIP” BETWEEN HERO & NEXT CARD */
+      .area-hero-image {
+        margin-bottom: -8px;
+      }
+
+      .bento-grid { grid-template-columns: 1fr; }
+      /* 4) ENSURE EDUCATION & PROJECTS FLOW CLEANLY */
+      .area-work,
+      .area-projects,
+      .area-skills,
+      .area-education {
+        grid-column: span 1;
+      }
+      
+      .area-intro {
+        flex-direction: column-reverse;
+        min-height: auto;
+      }
+      .intro-text { width: 100%; padding: 32px; }
+      .intro-image-container {
+        width: 100%;
+        height: 300px;
+        clip-path: none;
+        margin-left: 0;
+      }
+      .boundary-img {
+        mask-image: linear-gradient(to bottom, transparent 0%, black 20%);
+        -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%);
+      }
+      .work-grid { grid-template-columns: 1fr; gap: 20px; }
+      .work-full-row { grid-column: span 1; }
+      .area-education { flex-direction: column; gap: 20px; align-items: flex-start; }
+
+      .card {
+        padding: 24px;
+        min-width: 0;
+      }
+
+      .hero-title {
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 900px) and (orientation: landscape) {
+
+      body {
+        padding: 16px 16px;
+      }
+
+      /* Grid stays single-column to avoid half-cards */
+      .bento-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      /* HERO: prevent over-tall image in landscape */
+      .area-hero-image {
+        height: 240px;
+      }
+
+      .area-hero-image img {
+        object-position: center 25%;
+      }
+
+      /* HERO TEXT spacing */
+      .area-hero-text {
+        padding-bottom: 12px;
+      }
+
+      /* Reduce vertical rhythm slightly */
+      .card {
+        padding: 20px;
+      }
+
+      /* Work grid stays stacked */
+      .work-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      /* Education spacing */
+      .area-education {
+        gap: 16px;
+      }
+    }
+    /* --- Desktop Hover Animations --- */
+    @media (hover: hover) and (pointer: fine) {
+
+      .card,
+      .sub-card {
+        transition:
+          transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+          box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .card:hover,
+      .sub-card:hover {
+        transform: translateY(-4px) scale(1.015);
+        background: linear-gradient(
+          180deg,
+          rgba(255,255,255,0.035),
+          rgba(255,255,255,0.015)
+        );
+        box-shadow:
+          0 10px 28px rgba(0, 0, 0, 0.35),
+          0 4px 12px rgba(0, 0, 0, 0.25);
+      }
+
+      .card {
+        transition:
+          transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+          box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+          border-color 0.35s ease;
+      }
+
+      .card:hover {
+        border-color: rgba(203,191,166,0.55);
+      }
+
+    }
+/* --- Footer --- */
+.site-footer {
+  max-width: var(--max-w);
+  margin: 60px auto 20px;
+  padding: 24px 20px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-right a {
+  color: var(--sand);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+.footer-right a:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 900px) {
+  .site-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+</style>
+</head>
+<body>
+
+  <main class="bento-grid">
+
+    <!-- 1A. HERO TEXT -->
+    <div class="card area-hero-text">
+      <h1 class="hero-name">Ishika Rastogi</h1>
+      <div class="hero-title">Strategy | Market Research | Operations</div>
+
+      <p style="margin-top: 24px; max-width: 420px; opacity: 0.85; line-height: 1.7;">
+        MSc Management graduate from <strong>Warwick Business School</strong>. Experienced in strategy, market research and operational growth. I
+excel in fast-paced, high ownership environments translating Market and data insights into clear, KPI-aligned actions and leading cross-
+team execution. 
+      </p>
+
+      <div>
+        <a href="mailto:ishika2407rastogi@gmail.com" class="btn">Get in Touch</a>
+      </div>
+    </div>
+
+    <!-- 1B. HERO IMAGE -->
+    <div class="card area-hero-image">
+      <img 
+        src="ishika.jpeg"
+        alt="Ishika Rastogi"
+        loading="eager"
+        style="
+          width:100%;
+          height:100%;
+          object-fit:cover;
+          object-position:center 30%;
+          display:block;
+        "
+      >
+    </div>
+
+    <!-- 2. WORK EXPERIENCE (Full Width Tile) -->
+    <div class="card area-work">
+      <h2>Work Experience</h2>
+      
+      <div class="work-grid">
+        
+        <!-- Job 1 -->
+        <div class="job-item">
+          <div class="job-header">
+            <h3>Specialist</h3>
+            <span class="date">Sep 2025 - Present</span>
+          </div>
+          <div class="company" style="margin-bottom: 12px;">ACHD Health Care App</div>
+          <p>•Forecasted revenue and user growth scenarios using pipeline assumptions for collaborations with NHS Trusts, cardiology
+               networks and mental-health units translating epidemiology into commercially viable trajectories.</p>
+          <p>•Segment-analysed smartphone penetration and digital-health adoption within the UK teen/young-adult demographic,
+              identifying high-potential addressing strategies for in-app engagement and retention.</p>
+          <p>•Leveraged Excel and Tableau dashboards to present actionable growth forecasts and segment insights to senior stakeholders,
+              enabling evidence-based decision making.</p>
+          <p>•Conducted UK-wide market sizing for diagnosed ACHD patients aged 16-20, using NHS and clinic data to define target base
+            and forecast addressable market.</p>
+        </div>
+
+        <!-- Job 2 -->
+        <div class="job-item">
+          <div class="job-header">
+            <h3>Business Consultant</h3>
+            <span class="date">July 2025 - Present</span>
+          </div>
+          <div class="company" style="margin-bottom: 12px;">Blackmont Consulting</div>
+          <p>•Analysed complex operational datasets using Excel techniques and created interactive Tableau dashboards, reducing manual
+           reporting by 30% and enabling faster, data-driven decision-making.</p>
+          <p>• Led a strategic consulting engagement that involved in-depth market and workflow analysis, delivered recommendations that
+           improved client process efficiency by 20% and secured senior stakeholder buy-in for implementation.</p>
+          <p>• Leveraged KPI reporting and look-up models to align stakeholder feedback with tactical actions, translating insights into
+           measurable improvements in campaign performance and business growth.</p>
+          <p>• Supported marketing operations by integrating analytics tools and reporting frameworks, enhanced the measurement of key
+           marketing metrics (e.g., engagement rates, conversion rates) to optimise spend and improve return on marketing investment.</p>
+        </div>
+
+        <!-- Job 3 (Spans full width at bottom) -->
+        <div class="job-item work-full-row">
+          <div class="job-header">
+            <h3>Marketing Associate</h3>
+            <span class="date">Aug 2023 - Aug 2024</span>
+          </div>
+          <div class="company" style="margin-bottom: 12px;">Swarnganga Jewel Arts</div>
+          <p>• Increased market reach by 25% through strategic lead qualification. Devised AI-powered tools leading to 20% higher footfall conversion.</p>
+          <p>• Devised AI-powered tools and streamlined the content strategy, which translated into a 20% uplift in in store visits and higher
+               footfall conversion.</p>
+        </div>
+
+        <!-- Job 4 (Spans full width at bottom) -->
+        <div class="job-item work-full-row">
+          <div class="job-header">
+            <h3>Social Media Manager</h3>
+            <span class="date">July 2021 - Jan 2022</span>
+          </div>
+          <div class="company" style="margin-bottom: 12px;">Swarnganga Jewel Arts</div>
+          <p>• Managed large scale content roll outs using SEO driven strategies, resulting in a 30% increase in reach and improved organic
+              channel performance.</p>
+          <p>• Optimised ad spend through data-led targeting frameworks and continuous campaign refinement, raising click through rates
+              by 15% and maximising return on investment.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 3. PROJECTS (Half Width) -->
+    <div class="card area-projects">
+      <h2>Key Projects</h2>
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        
+        <div class="sub-card">
+          <h3 style="margin-bottom: 6px; color: #fff;">Blackmont Analytics</h3>
+          <p style="font-size: 0.85rem;">Used Excel and Google Analytics to analyze customer data, refine segmentation, and optimize product timing.</p>
+        </div>
+
+        <div class="sub-card">
+          <h3 style="margin-bottom: 6px; color: #fff;">Coca-Cola Gen Z</h3>
+          <p style="font-size: 0.85rem;">Developed seasonal campaign content kits strengthening integrated marketing & cross-functional collaboration.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 4. SKILLS (Half Width) -->
+    <div class="card area-skills">
+      <h2>Skills</h2>
+      <div style="margin-bottom: 30px;">
+        <span class="skill-pill">Tableau</span>
+        <span class="skill-pill">Excel (Advanced)</span>
+        <span class="skill-pill">Google Analytics</span>
+        <span class="skill-pill">Revenue Modelling</span>
+        <span class="skill-pill">Growth Strategy</span>
+        <span class="skill-pill">Stakeholder Management</span>
+        <span class="skill-pill">Canva</span>
+      </div>
+      
+      <div style="border-top: 1px solid var(--border); padding-top: 20px;">
+        <h3 style="margin-bottom: 10px; opacity: 0.8;">Certifications</h3>
+        <ul style="padding-left: 20px; margin: 0; color: var(--text-muted);">
+          <li style="margin-bottom: 6px;">Harvard CORe (Credential of Readiness)</li>
+          <li style="margin-bottom: 6px;">Inside LVMH</li>
+          <li>Teaming@BCG Job Simulation</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 5. EDUCATION (Full Width) -->
+    <div class="card area-education">
+      <div style="display: flex; gap: 40px; align-items: center; flex-wrap: wrap;">
+        <div>
+          <h3 style="font-size: 1.25rem;">MSc Management</h3>
+          <p style="color: var(--sand); margin-top: 4px;">Warwick Business School (Grade : Merit) | Sep 2024 - July 2026</p>
+          <p style="font-size: 0.8rem; margin-top: 4px;">Dissertation: Redefining Luxury for Gen Z in Western Markets - Gucci’s Strategy to Align Exclusivity with Inclusivity and
+                     Sustainability</p>
+        </div>
+        
+       
+
+        <div>
+          <h3 style="font-size: 1.25rem;">Bachelor's of Management</h3>
+          <p style="color: var(--sand); margin-top: 4px;">H.R. College (Grade 1:1) | Sep 2020 - Apr 2024</p>
+          <p style="font-size: 0.8rem; margin-top: 4px;">Dissertation: Impact of Brand Placements During Indian premier league on consumer behaviour.</p>
+        </div>
+      </div>
+      
+      <div style="opacity: 0.5; font-size: 0.85rem; text-align: right; margin-top: 10px;">
+        <br>Open to Remote/Hybrid work in India,UK and Europe.
+      </div>
+    </div>
+
+  </main>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-left">
+    <div>© <span id="year"></span> Ishika Rastogi</div>
+    <div>Phone: <a href="tel:+917454800126" style="color: var(--sand); text-decoration: none;">+91 74548 00126</a></div>
+  </div>
+
+  <div class="footer-right">
+    <a href="https://www.linkedin.com/in/ishikarastogi/" target="_blank" rel="noopener">
+      <i data-lucide="linkedin"></i>
+      LinkedIn
+    </a>
+  </div>
+</footer>
+
+<script>
+  lucide.createIcons();
+  // Simple logic to show divider on desktop only
+  if(window.innerWidth > 900) {
+      const dividers = document.querySelectorAll('.area-education div[style*="width: 1px"]');
+      dividers.forEach(d => d.style.display = 'block');
+  }
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
